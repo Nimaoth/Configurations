@@ -9,10 +9,10 @@
 " nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 
 " buffer list
-nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
+" nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
 
 " Help windows
-nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
+" nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
 
 " git
-nnoremap <leader>pg :lua require('telescope.builtin').git_files()<CR>
+" nnoremap <leader>pg :lua require('telescope.builtin').git_files()<CR>
