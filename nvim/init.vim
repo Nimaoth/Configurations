@@ -134,6 +134,8 @@ tnoremap <C-e> <C-\><C-n>
 " telescope
 nnoremap <Leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 
+nnoremap <Leader>hc :let @/ = ""<CR>
+
 "
 fun! TrimWhitespace()
     let l:save = winsaveview()

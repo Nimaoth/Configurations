@@ -26,6 +26,7 @@ set backspace=indent,eol,start
 set visualbell
 set mouse=a
 set cmdheight=2
+set hlsearch
 
 " Fold stuff
 set foldlevelstart=1
