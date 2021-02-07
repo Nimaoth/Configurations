@@ -31,3 +31,14 @@ set hlsearch
 " Fold stuff
 set foldlevelstart=1
 set foldmethod=indent
+
+" shell
+
+if has("win64")
+    set shell=pwsh
+endif
+
+if has("unix")
+    set shell=zsh
+endif
+

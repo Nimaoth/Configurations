@@ -132,6 +132,11 @@ nnoremap c* *Ncgn
 vnoremap <Leader>h :s/
 
 tnoremap <C-e> <C-\><C-n>
+tnoremap <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+
+" in insert mode, press C-r to temporarily enter normal mode
+inoremap <C-r> <C-o>
+
 
 " telescope
 " nnoremap <Leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
@@ -148,15 +153,27 @@ nnoremap <Leader>gfw <c-w>F
 nnoremap <Leader>gft <c-w>gF
 
 " terminal stuff
-nmap <Leader>tu : call GotoBuffer(0)<CR>
-nmap <Leader>ti : call GotoBuffer(1)<CR>
-nmap <Leader>ta : call GotoBuffer(2)<CR>
-nmap <Leader>te : call GotoBuffer(3)<CR>
+nmap <Leader>tu :call GotoBuffer(0)<CR>
+nmap <Leader>ti :call GotoBuffer(1)<CR>
+nmap <Leader>ta :call GotoBuffer(2)<CR>
+nmap <Leader>te :call GotoBuffer(3)<CR>
 
-nmap <Leader>tsu : call SetBuffer(0)<CR>
-nmap <Leader>tsi : call SetBuffer(1)<CR>
-nmap <Leader>tsa : call SetBuffer(2)<CR>
-nmap <Leader>tse : call SetBuffer(3)<CR>
+nmap <Leader>tsu :call SetBuffer(0)<CR>
+nmap <Leader>tsi :call SetBuffer(1)<CR>
+nmap <Leader>tsa :call SetBuffer(2)<CR>
+nmap <Leader>tse :call SetBuffer(3)<CR>
+
+nmap <Leader>tp :call OpenTerminal("pwsh")<CR>
+nmap <Leader>tw :call OpenTerminal("wsl")<CR>
+nmap <Leader>tc :call OpenTerminal("cmd")<CR>
+
+" e.g. :call OpenTerminal("pwsh")
+fun! OpenTerminal(shell)
+  let s_shell = &shell
+  let &shell = a:shell
+  terminal
+  let &shell = s_shell
+endfun
 
 fun! GotoBuffer(ctrlId)
     if (a:ctrlId > 9) || (a:ctrlId < 0)
@@ -213,7 +230,12 @@ endfun
 augroup MY_AUTO_COMMANDS
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
+    autocmd FocusGained * :redraw!
+    autocmd TermEnter * :redraw!
+    autocmd WinEnter * :redraw!
+    autocmd BufEnter * :redraw!
 augroup END
+
 
     "\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     "\ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
@@ -230,11 +252,10 @@ nmap <silent>K <Plug>(lcn-hover)
 nmap <silent> gd <Plug>(lcn-definition)
 nmap <silent> <F2> <Plug>(lcn-rename)
 
+" Execute a vim command and put the output in the unnamed register
+fun! YankCmd()
+    let cmd = execute("lua print(vim.fn.input(\"y:\"))")
+    let @@=execute(l:cmd)
+endfun
+nnoremap <Leader><Space> :call YankCmd()<CR>
 
-"fun! ExeAndPaste(command)
-"    :redir @a
-"    silent execute a:command
-"    :redir END
-"endfun
-
-" nmap <Leader>e
