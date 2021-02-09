@@ -27,18 +27,10 @@ set visualbell
 set mouse=a
 set cmdheight=2
 set hlsearch
+set fileformat=unix
+set fileformats=unix,dos
 
 " Fold stuff
 set foldlevelstart=1
 set foldmethod=indent
-
-" shell
-
-if has("win64")
-    set shell=pwsh
-endif
-
-if has("unix")
-    set shell=zsh
-endif
 
