@@ -12,6 +12,8 @@ nmap <Leader>tse :call SetBuffer(3)<CR>
 nmap <Leader>tp :call OpenTerminal("pwsh")<CR>
 nmap <Leader>tw :call OpenTerminal("wsl")<CR>
 nmap <Leader>tc :call OpenTerminal("cmd")<CR>
+nmap <Leader>tz :call OpenTerminal("zsh")<CR>
+nmap <Leader>tb :call OpenTerminal("bash")<CR>
 
 " e.g. :call OpenTerminal("pwsh")
 fun! OpenTerminal(shell)

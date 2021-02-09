@@ -1,2 +1,2 @@
-au BufRead,BufNewFile *.che set filetype=cheez
-echo 'ftdetect file loaded'
+" au BufRead,BufNewFile *.che set filetype=cheez
+" echo 'ftdetect file loaded'
