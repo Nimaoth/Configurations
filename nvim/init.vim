@@ -36,6 +36,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 
+Plug 'tommcdo/vim-lion'
 call plug#end()
 
 colorscheme gruvbox
