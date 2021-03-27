@@ -7,6 +7,8 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'tjdevries/nlua.nvim'
 Plug 'tjdevries/lsp_extensions.nvim'
 
+" languages
+Plug 'ziglang/zig.vim'
 
 if has('win32')
     Plug 'autozimu/LanguageClient-neovim', {
@@ -30,6 +32,10 @@ else
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+" Snippets
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+
 "
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -44,8 +50,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
-
 Plug 'tommcdo/vim-lion'
+Plug 'Nimaoth/winresizer'
+Plug 'simnalamburt/vim-mundo'
+
 call plug#end()
 
 colorscheme gruvbox
@@ -68,6 +76,8 @@ fun! YankCmd()
 endfun
 nnoremap <Leader><Space> :call YankCmd()<CR>
 
+let mapleader = "\<Space>"
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 "               Plugin configuration                "
 """""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -78,3 +88,7 @@ let g:deoplete#enable_at_startup = 1
 " Echodoc
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'floating'
+
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)

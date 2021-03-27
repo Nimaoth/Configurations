@@ -30,7 +30,9 @@ set hlsearch
 set fileformat=unix
 set fileformats=unix,dos
 
+set clipboard+=unnamedplus
+
 " Fold stuff
-set foldlevelstart=1
-set foldmethod=indent
+" set foldlevelstart=1
+" set foldmethod=indent
 

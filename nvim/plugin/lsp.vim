@@ -4,6 +4,7 @@
     "\ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
 let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
+    \ 'zig': ['zls'],
     \ }
 
 " note that if you are using Plug mapping you should not use `noremap` mappings.

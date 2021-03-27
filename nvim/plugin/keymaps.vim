@@ -1,8 +1,9 @@
-let mapleader = "\<Space>"
-
 "
 imap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 imap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+"
+nnoremap Q q
 
 " yank from cursor to end of line
 nnoremap Y y$
@@ -54,9 +55,9 @@ nnoremap <Leader>cv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <Leader>cf :Files<CR>
 
 " Increase size of current panel
-nnoremap <Leader>vs :vertical resize +10<CR>
+" nnoremap <Leader>vs :vertical resize +10<CR>
 " Decrease size of current panel
-nnoremap <Leader>vd :vertical resize -10<CR>
+" nnoremap <Leader>vd :vertical resize -10<CR>
 
 " Move panel focus left
 nnoremap <Leader>vn :wincmd h<CR>
@@ -125,3 +126,10 @@ tnoremap <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
 " in insert mode, press C-r to temporarily enter normal mode
 inoremap <C-r> <C-o>
+
+" visual block
+nnoremap <Leader>vb <C-v>
+
+" switch to alternate Buffer
+nnoremap <Leader>pp <C-^>
+

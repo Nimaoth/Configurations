@@ -15,6 +15,10 @@ nmap <Leader>tc :call OpenTerminal("cmd")<CR>
 nmap <Leader>tz :call OpenTerminal("zsh")<CR>
 nmap <Leader>tb :call OpenTerminal("bash")<CR>
 
+tnoremap <CR> <CR><C-\><C-n>G
+tnoremap <S-CR> <CR>
+tnoremap <Esc> <C-\><C-n>
+
 " e.g. :call OpenTerminal("pwsh")
 fun! OpenTerminal(shell)
   let s_shell = &shell
