@@ -32,7 +32,7 @@ syn match cheezDocCommentLine '/// .*$'
 syn region codeBlock start='{' end='}' fold transparent
 syn region groupBlock start='(' end=')' fold transparent
 syn region arrayBlock start='\[' end='\]' fold transparent
-syn region cheezString start=+"+ end=+"+ 
+syn region cheezString start=+"+ end=+"+
 syn region cheezCharacter start=+'+ end=+'+
 syn region cheezCommentBlock start='/\*' end='\*/' fold
 syn region cheezDocCommentBlock start='///\*' end='\*/' fold

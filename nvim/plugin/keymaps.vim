@@ -36,12 +36,6 @@ nnoremap M '
 " U for redo
 noremap U <C-r>
 
-" R for replace single charactor
-noremap R r
-
-" use r for register instead of " because its more convenient
-noremap r "
-
 " ctrl+s = save
 nnoremap <C-s> :w<CR>
 
@@ -83,17 +77,41 @@ nnoremap <Leader>vh :wincmd s<CR>
 " Close all other panels except the current one
 nnoremap <Leader>vf :wincmd o<CR>
 
+" Move panel focus left
+nnoremap ti :wincmd h<CR>
+
+" Move panel focus right
+nnoremap te :wincmd l<CR>
+
+" Move panel focus up
+nnoremap tl :wincmd k<CR>
+
+" Move panel focus down
+nnoremap ta :wincmd j<CR>
+
+" Close current panel
+nnoremap tw :wincmd q<CR>
+
+" Create a vertical split
+nnoremap tv :wincmd v<CR>
+
+" Create a horizontal split
+nnoremap tc :wincmd s<CR>
+
+" Close all other panels except the current one
+nnoremap tf :wincmd o<CR>
+
 " Open new tab
-nnoremap <Leader>tt :tabnew<CR>
+nnoremap tt :tabnew<CR>
 
 " Close new tab
-nnoremap <Leader>tq :tabclose<CR>
+nnoremap tq :tabclose<CR>
 
 " Next tab
-nnoremap <Leader>tr :tabnext<CR>
+nnoremap tr :tabnext<CR>
 
 " Prev tab
-nnoremap <Leader>tn :tabprevious<CR>
+nnoremap tn :tabprevious<CR>
 
 " Add a new line below the current line
 nnoremap <Leader>o o<C-[>
@@ -111,9 +129,10 @@ nnoremap <Leader>hf :%s/
 nnoremap <Leader>hc :let @/ = ""<CR>
 
 " Open file under cursor
-nnoremap <Leader>gff gF
-nnoremap <Leader>gfw <c-w>F
-nnoremap <Leader>gft <c-w>gF
+nnoremap gv <c-w>vgf
+nnoremap gV <c-w>vgF
+nnoremap gh <c-w>f
+nnoremap gH <c-w>F
 
 "
 nnoremap c* *Ncgn
@@ -131,5 +150,10 @@ inoremap <A-o> <C-o>
 nnoremap <Leader>vb <C-v>
 
 " switch to alternate Buffer
-nnoremap <Leader>pp <C-^>
+nnoremap ga <C-^>
+
+" comment in selection
+nnoremap <Leader>kc :'<,'>g/./:exe "norm I//"<cr><Space>hc
+" comment out selection
+nnoremap <Leader>ku :'<,'>g/\/\//:norm 0xx<cr>
 
