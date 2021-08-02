@@ -36,12 +36,6 @@ nnoremap M '
 " U for redo
 noremap U <C-r>
 
-" R for replace single charactor
-noremap R r
-
-" use r for register instead of " because its more convenient
-noremap r "
-
 " ctrl+s = save
 nnoremap <C-s> :w<CR>
 
