@@ -125,7 +125,7 @@ tnoremap <C-e> <C-\><C-n>
 tnoremap <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
 " in insert mode, press C-r to temporarily enter normal mode
-inoremap <C-r> <C-o>
+inoremap <A-o> <C-o>
 
 " visual block
 nnoremap <Leader>vb <C-v>
