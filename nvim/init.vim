@@ -1,64 +1,52 @@
 set exrc " Wont open project .nvimrc without this here
+set completeopt=menuone,noselect
+
+let g:python3_host_prog = 'C:/Users/nimao/AppData/Local/Programs/Python/Python39/python3.exe'
+
+" Nice menu when typing `:find *.py`
+set wildmode=longest,list,full
+set wildmenu
+" Ignore files
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/android/*
+set wildignore+=**/ios/*
+set wildignore+=**/.git/*
 
 call plug#begin('~/.vim/plugged')
-" Neovim lsp Plugins
+
+" Plebvim lsp Plugins
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'tjdevries/nlua.nvim'
-Plug 'tjdevries/lsp_extensions.nvim'
+Plug 'hrsh7th/nvim-compe'
+Plug 'simrat39/symbols-outline.nvim'
+
+
+" Neovim Tree shitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
+
+" telescope requirements...
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " languages
 Plug 'ziglang/zig.vim'
+Plug 'zah/nim.vim'
 
-if has('win32')
-    Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'powershell -executionpolicy bypass -File install.ps1',
-        \ }
-else
-    Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'bash install.sh',
-        \ }
-endif
-
-" autocompletion
-Plug 'Shougo/echodoc.vim'
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-" Snippets
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-
-"
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
+" Themes
 Plug 'gruvbox-community/gruvbox'
-Plug 'jremmen/vim-ripgrep'
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
-Plug 'airblade/vim-gitgutter'
-Plug 'tommcdo/vim-lion'
-Plug 'Nimaoth/winresizer'
-Plug 'simnalamburt/vim-mundo'
+" Motion
+Plug 'phaazon/hop.nvim'
 
 call plug#end()
 
 colorscheme gruvbox
 
-"
+" Trim whitespace at end of lines when saving a file
 fun! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
@@ -82,13 +70,10 @@ let mapleader = "\<Space>"
 "               Plugin configuration                "
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
+lua require("nimaoth")
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }, playground = { enable = true }}
 
-" Echodoc
-let g:echodoc#enable_at_startup = 1
-let g:echodoc#type = 'floating'
-
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
+nnoremap <leader>e :HopWord<cr>
+nnoremap <leader>a :HopLine<cr>
+nnoremap <leader>i :HopChar1<cr>
+nnoremap <leader>u :HopChar2<cr>

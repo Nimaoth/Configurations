@@ -1,6 +1,7 @@
 set relativenumber
 set number
 set nohlsearch
+set cursorline
 set hidden
 set noerrorbells
 set tabstop=4 softtabstop=4
@@ -18,7 +19,7 @@ set incsearch
 set termguicolors
 set scrolloff=4
 set noshowmode
-set completeopt=menuone,noinsert
+set completeopt=menuone,noselect
 set signcolumn=yes
 set wildmenu
 set showcmd
@@ -31,6 +32,8 @@ set fileformat=unix
 set fileformats=unix,dos
 
 set clipboard+=unnamedplus
+
+set updatetime=50
 
 " Fold stuff
 " set foldlevelstart=1

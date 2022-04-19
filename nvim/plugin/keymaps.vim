@@ -5,6 +5,12 @@ imap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "
 nnoremap Q q
 
+nnoremap h gh
+nnoremap l gl
+
+nnoremap <up> g<up>
+nnoremap <down> g<down>
+
 " yank from cursor to end of line
 nnoremap Y y$
 nnoremap <C-a> gg"+yG
@@ -38,6 +44,9 @@ noremap U <C-r>
 
 " ctrl+s = save
 nnoremap <C-s> :w<CR>
+
+" Search for selected text.
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " In insert mode, enter normal mode and find
 inoremap <C-f><C-f> <Esc>/
